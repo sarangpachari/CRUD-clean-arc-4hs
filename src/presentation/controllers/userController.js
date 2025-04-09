@@ -1,7 +1,4 @@
-const userRepo = require("../../infrastructure/database/repositories/userRepositoryImpl.js");
-const crudFactory = require("../../application/use-cases/crudFactory.js");
-
-const userCrud = crudFactory(userRepo);
+const userCrud = require("../../application/use-cases/userUseCase.js");
 
 module.exports = {
   create: async (req, res) => {

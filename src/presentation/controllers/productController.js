@@ -1,7 +1,4 @@
-const productRepo = require('../../infrastructure/database/repositories/productRepositoryImpl.js');
-const crudFactory = require ('../../application/use-cases/crudFactory.js');
-
-const productCrud = crudFactory(productRepo);
+const productCrud = require("../../application/use-cases/productUseCase.js");
 
 module.exports = {
   create: async (req, res) => {
@@ -22,6 +19,6 @@ module.exports = {
   },
   delete: async (req, res) => {
     await productCrud.delete(req.params.id);
-    res.json({ message: 'Deleted' });
-  }
+    res.json({ message: "Deleted" });
+  },
 };
