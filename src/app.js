@@ -1,15 +1,11 @@
 const express = require("express");
-const app = express();
-const userRoutes = require("./routes/userRoutes");
-const productRoutes = require("./routes/productRoutes");
+const userRoutes = require("./presentation/routes/userRoutes.js");
+const productRoutes = require("./presentation/routes/productRoutes.js");
 
+const app = express();
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
-
-app.get("/", (req, res) => {
-  res.send("Welcome to the Clean Architecture CRUD API!");
-});
 
 module.exports = app;
