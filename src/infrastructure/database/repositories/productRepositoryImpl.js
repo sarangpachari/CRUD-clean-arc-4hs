@@ -1,11 +1,9 @@
-const prisma = require("../../../config/db.js");
+const { prisma } = require("../../../config/db.js");
 
-const productRepository = {
-  create: (data) => prisma.product.create({ data }),
-  findAll: () => prisma.product.findMany(),
-  findById: (id) => prisma.product.findUnique({ where: { id } }),
-  update: (id, data) => prisma.product.update({ where: { id }, data }),
-  delete: (id) => prisma.product.delete({ where: { id } }),
+module.exports = {
+  create: async (data) => await prisma.product.create({ data }),
+  getAll: async () => await prisma.product.findMany(),
+  getById: async (id) => await prisma.product.findUnique({ where: { id } }),
+  update: async (id, data) => await prisma.product.update({ where: { id }, data }),
+  delete: async (id) => await prisma.product.delete({ where: { id } })
 };
-
-module.exports = productRepository;

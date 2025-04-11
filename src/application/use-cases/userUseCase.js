@@ -1,4 +1,2 @@
-const userRepo = require("../../infrastructure/database/repositories/userRepositoryImpl.js");
-const crudFactory = require("../../utils/crudFactory.js");
-
-module.exports = crudFactory(userRepo);
+const crudFactory = require("../../utils/crudFactory");
+module.exports = (userRepo) => crudFactory(userRepo);

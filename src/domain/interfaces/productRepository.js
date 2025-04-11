@@ -1,9 +1,7 @@
-class ProductRepository {
-  create(product) {}
-  findAll() {}
-  findById(id) {}
-  update(id, product) {}
-  delete(id) {}
-}
-
-module.exports = ProductRepository;
+module.exports = {
+  create: async (product) => {},
+  getAll: async () => {},
+  getById: async (id) => {},
+  update: async (id, product) => {},
+  delete: async (id) => {}
+};

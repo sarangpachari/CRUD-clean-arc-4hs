@@ -1,24 +1,42 @@
-const productCrud = require("../../application/use-cases/productUseCase.js");
-
-module.exports = {
+module.exports = (productUseCase) => ({
   create: async (req, res) => {
-    const product = await productCrud.create(req.body);
-    res.status(201).json(product);
+    try {
+      const result = await productUseCase.create(req.body);
+      res.status(201).json(result);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
   },
   getAll: async (req, res) => {
-    const products = await productCrud.getAll();
-    res.json(products);
+    try {
+      const result = await productUseCase.getAll();
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
   },
   getById: async (req, res) => {
-    const product = await productCrud.getById(req.params.id);
-    res.json(product);
+    try {
+      const result = await productUseCase.getById(req.params.id);
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
   },
   update: async (req, res) => {
-    const product = await productCrud.update(req.params.id, req.body);
-    res.json(product);
+    try {
+      const result = await productUseCase.update(req.params.id, req.body);
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
   },
   delete: async (req, res) => {
-    await productCrud.delete(req.params.id);
-    res.json({ message: "Deleted" });
+    try {
+      const result = await productUseCase.delete(req.params.id);
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
   },
-};
+});

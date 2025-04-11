@@ -1,9 +1,7 @@
-class UserRepository {
-  create(user) {}
-  findAll() {}
-  findById(id) {}
-  update(id, user) {}
-  delete(id) {}
-}
-
-module.exports = UserRepository;
+module.exports = {
+  create: async (user) => {},
+  getAll: async () => {},
+  getById: async (id) => {},
+  update: async (id, user) => {},
+  delete: async (id) => {}
+};

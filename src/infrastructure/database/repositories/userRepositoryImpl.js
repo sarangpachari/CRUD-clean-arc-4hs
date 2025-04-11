@@ -1,11 +1,9 @@
-const prisma = require("../../../config/db.js");
+const { prisma } = require("../../../config/db.js");
 
-const userRepository = {
-  create: (data) => prisma.user.create({ data }),
-  findAll: () => prisma.user.findMany(),
-  findById: (id) => prisma.user.findUnique({ where: { id } }),
-  update: (id, data) => prisma.user.update({ where: { id }, data }),
-  delete: (id) => prisma.user.delete({ where: { id } }),
+module.exports = {
+  create: async (data) => await prisma.user.create({ data }),
+  getAll: async () => await prisma.user.findMany(),
+  getById: async (id) => await prisma.user.findUnique({ where: { id } }),
+  update: async (id, data) => await prisma.user.update({ where: { id }, data }),
+  delete: async (id) => await prisma.user.delete({ where: { id } }),
 };
-
-module.exports = userRepository;

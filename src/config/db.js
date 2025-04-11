@@ -13,4 +13,4 @@ async function connectToMongo() {
 
 connectToMongo();
 
-module.exports = prisma;
+module.exports = { prisma };
